@@ -1,10 +1,16 @@
 class PostsController < ApplicationController
     
     def index
+        if !current_user
+            redirect_to new_user_session_path
+        end
        @posts = Post.all 
     end
     
     def new 
+        if !current_user
+            redirect_to new_user_session_path
+        end
         @post = Post.new
     end
     
