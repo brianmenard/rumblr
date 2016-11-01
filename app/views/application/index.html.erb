@@ -9,3 +9,10 @@
     </div>
     <div class='col-md-2'></div>
 </div>
+
+<div class="white">
+<% @users.each do |user| %>
+    username: <%=user.username%><br>
+    email: <%=user.email%><br>
+<%end%>
+</div>
