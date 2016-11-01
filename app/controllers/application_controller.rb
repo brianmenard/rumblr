@@ -7,10 +7,7 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       redirect_to posts_path
     end
-    @users = User.all
   end
-  
-  protected
 
   
 end
