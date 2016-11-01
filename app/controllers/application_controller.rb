@@ -9,5 +9,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def preferences
+    @user = current_user
+  end
   
 end

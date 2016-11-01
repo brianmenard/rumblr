@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   root 'application#index'
   
   resources :users
+  
+  get '/preferences', to: 'application#preferences'
 
 end
 
