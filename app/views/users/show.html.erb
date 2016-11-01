@@ -9,9 +9,10 @@
     <% else %>
         <%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
             html: { method: :delete }) do |f| %>
-    <%= f.submit "Unfollow", class: "btn" %>
-<% end %>
+        <%= f.submit "Unfollow", class: "btn" %>
+        <% end %>
     <% end %>
+    <br>
     
 <div class='row'>
     <div class='col-md-2'></div>

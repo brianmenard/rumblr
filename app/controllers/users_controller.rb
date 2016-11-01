@@ -9,4 +9,8 @@ class UsersController < ApplicationController
         @posts = @user.posts
     end
     
+    def following
+       @following = current_user.following 
+    end
+    
 end
