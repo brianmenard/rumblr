@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
   
   resources :posts
+  get '/feed', to: 'posts#feed'
   devise_for :users
   root 'application#index'
   
   resources :users
   
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  
   get '/preferences', to: 'application#preferences'
+  resources :relationships, only: [:create, :destroy]
 
 end
 

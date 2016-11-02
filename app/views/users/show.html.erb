@@ -1,6 +1,31 @@
 
 <div class='white'>
     <h1><%= @user.username %>'s Profile<br></h1>
-    <a href='#'>Follow</a><br>
-    Email:  <%= @user.email  %><br>
+    <% if !current_user.following?(@user) %>
+        <%= form_for(current_user.active_relationships.build) do |f| %>
+            <div><%= hidden_field_tag :followed_id, @user.id %></div>
+            <%= f.submit "Follow", class: "btn btn-primary" %>
+        <% end %>
+    <% else %>
+        <%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
+            html: { method: :delete }) do |f| %>
+        <%= f.submit "Unfollow", class: "btn" %>
+        <% end %>
+    <% end %>
+    <br>
+    
+<div class='row'>
+    <div class='col-md-2'></div>
+    <div class='col-md-8 center white'>
+        <% @posts.each do |post|%>
+            <div class="post_card">
+                <h2><%= post.title %></h2>
+                <h4><%= post.body %></h4>
+                <%= link_to post.user.username, post.user %>
+            </div>
+        <% end %>
+    </div>
+    <div class='col-md-2'></div>
+</div>
+    
 </div>
