@@ -12,6 +12,7 @@ class PostsController < ApplicationController
             redirect_to new_user_session_path
         end
        @posts = Post.all 
+       @following = current_user.following
     end
     
     def new 
@@ -37,6 +38,6 @@ class PostsController < ApplicationController
 private
    def post_params
     params.require(:post).permit(:title, :body)
-  end
+   end
     
 end
