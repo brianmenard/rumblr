@@ -7,6 +7,13 @@ class PostsController < ApplicationController
        @posts = Post.all 
     end
     
+    def feed
+        if !current_user
+            redirect_to new_user_session_path
+        end
+       @posts = Post.all 
+    end
+    
     def new 
         if !current_user
             redirect_to new_user_session_path

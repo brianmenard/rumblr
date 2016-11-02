@@ -36,8 +36,8 @@
       <ul class="nav navbar-nav">
         <% if user_signed_in? %>
           <li><%= link_to "New Post", new_post_path %></li>
-          <li><a href="#">What's Rumbling</a></li>
-          <li><%= link_to 'Following', following_user_path(current_user)%></li>
+          <li><%= link_to "What's Rumbling", posts_path %></li>
+          <li><%= link_to 'Dashboard', feed_path %></li>
         <% end %>
       </ul>
       <form class="navbar-form navbar-left">
@@ -60,7 +60,7 @@
             <ul class="dropdown-menu">
               <li><a href="/users">View all users</a></li>
               <li><a href="/preferences">Preferences</a></li>
-              <li><a href="#">Something else here</a></li>
+              <li><%= link_to 'Following', following_user_path(current_user)%></li>
               <li role="separator" class="divider"></li>
               <li><a href="#">Separated link</a></li>
             </ul>

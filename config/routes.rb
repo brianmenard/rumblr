@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   resources :posts
+  get '/feed', to: 'posts#feed'
   devise_for :users
   root 'application#index'
   
