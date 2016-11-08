@@ -1,10 +1,15 @@
 <div class="post_card">
-    <div class='post_header'><%= link_to post.user.username, post.user, class:"username" %>  <%= link_to "reblog", "#"%></div>
-    <h2><%= post.title %></h2>
-    <h4><%= post.body %></h4>
-    <br>
-    <%= post.created_at.strftime("%I:%M %p %Z on %m-%d-%Y") %>
-    <% if post.user == current_user %>
-        <%= link_to "edit", edit_post_path(post) %> || <%= link_to "delete", post_path(post), method:"DELETE" %>
-    <% end %>
+    <div class='post_header'>
+        <%= link_to post.user.username, post.user, class:"username" %>  
+        <%= link_to "reblog", "#"%>
+    </div>
+    <div class="post_content">
+        <h2><%= post.title %></h2>
+        <h4><%= post.body %></h4>
+        <br>
+        <%= post.created_at.strftime("%I:%M %p %Z on %m-%d-%Y") %>
+        <% if post.user == current_user %>
+            <%= link_to "edit", edit_post_path(post) %> || <%= link_to "delete", post_path(post), method:"DELETE" %>
+        <% end %>
+    </div>
 </div>

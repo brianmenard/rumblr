@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   
   def index
     if user_signed_in?
-      redirect_to posts_path
+      redirect_to feed_path
     end
   end
 
