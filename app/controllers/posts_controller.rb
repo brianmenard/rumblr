@@ -21,6 +21,9 @@ class PostsController < ApplicationController
           @posts =  @posts + user.posts 
        end
        
+       #add users own posts
+       @posts = @posts + current_user.posts
+       
        #sort @posts by date
        @posts = @posts.sort_by { |a| [ a.created_at ] }.reverse!
     end
