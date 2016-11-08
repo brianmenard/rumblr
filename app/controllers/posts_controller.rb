@@ -4,7 +4,7 @@ class PostsController < ApplicationController
         if !current_user
             redirect_to new_user_session_path
         end
-       @posts = Post.all 
+       @posts = Post.all.sort_by { |a| [ a.created_at ] }.reverse!
     end
     
     def feed
@@ -22,7 +22,7 @@ class PostsController < ApplicationController
        end
        
        #sort @posts by date
-       @posts = @posts.sort_by { |a| [ a.created_at ] }
+       @posts = @posts.sort_by { |a| [ a.created_at ] }.reverse!
     end
     
     def new 
