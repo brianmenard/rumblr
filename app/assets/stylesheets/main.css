@@ -1,7 +1,10 @@
 
+body{
+    background-color: #35465c;
+}
+
 .background{
     background-color: #35465c;
-    margin-top: -20px;
 }
 
 .white{
