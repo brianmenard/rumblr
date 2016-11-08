@@ -4,13 +4,7 @@
     <div class='col-md-2'></div>
     <div class='col-md-8 center white'>
         <% @posts.each do |post|%>
-            <div class="post_card">
-                <h2><%= post.title %></h2>
-                <h4><%= post.body %></h4>
-                <%= link_to post.user.username, post.user %>  ||  <%= link_to "reblog", "#" %>
-                <br>
-                <%= post.created_at.strftime("%I:%M %p %Z on %m-%d-%Y") %>
-            </div>
+            <%= render partial: "post", locals: {post: post} %>
         <% end %>
     </div>
     <div class='col-md-2'></div>
