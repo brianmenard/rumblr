@@ -1,0 +1,11 @@
+
+<span style="color:black;">
+<%= form_for @post, :url => { :action => "post_reblog", method: "POST"} do |f| %>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %><br><br>
+    <%= f.label :body %><br>
+    <%= f.text_area :body, size: "45x6" %><br>
+    <%= f.hidden_field :reblogged_from, :value => @post.user %>
+    <%= f.submit%>
+<% end %>
+</span>

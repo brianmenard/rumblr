@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   
   resources :posts
   get '/feed', to: 'posts#feed'
+  get '/reblog/:id', to: 'posts#reblog'
+  patch '/reblog', to: 'posts#post_reblog'
   devise_for :users
   root 'application#index'
   

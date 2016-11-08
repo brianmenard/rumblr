@@ -59,6 +59,18 @@ class PostsController < ApplicationController
         @post.update(post_params)
         redirect_to post_path(@post)
     end
+    
+    def reblog
+       @post = Post.find(params[:id]) 
+    end
+    
+    def post_reblog
+        @post = Post.new(post_params) 
+        @post.user = current_user
+        if @post.save
+          redirect_to feed_path 
+        end
+    end
    
    
 private
