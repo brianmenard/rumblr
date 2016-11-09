@@ -5,10 +5,10 @@
             <%= render partial: "post", locals: {post: post} %>
         <% end %>
     </div>
-    <div class='col-md-2'>
-        <h2>Following</h2>
+    <div class='col-md-2 following_container'>
+        <h2 class="light_gray">Following</h2>
         <% @following.each do |following| %>
-            <%= link_to following.username, following %>
+            <%= link_to following.username, following, class: "med_gray" %>
             <br>
         <% end %>
     </div>

@@ -11,6 +11,18 @@ body{
     color: white;
 }
 
+.light_gray{
+    color:#d3d3d3;
+}
+
+.med_gray{
+    color:#a8a8a8;
+}
+
 .center{
     text-align: center;
+}
+
+.following_container{
+    border-left: solid thin #d3d3d3;
 }
