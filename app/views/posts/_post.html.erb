@@ -1,6 +1,9 @@
 <div class="post_card">
     <div class='post_header'>
-        <%= link_to post.user.username, post.user, class:"username" %>  
+            <%= link_to post.user.username, post.user, class:"username" %>  
+        <% if post.reblogged_from %>
+            reblogged from <%= link_to User.find(post.reblogged_from).username,  User.find(post.reblogged_from)%>
+        <% end %>
         <%= link_to "reblog", "/reblog/" + post.id.to_s%>
     </div>
     <div class="post_content">

@@ -70,6 +70,7 @@ class PostsController < ApplicationController
     def post_reblog
         @post = Post.new(post_params) 
         @post.user = current_user
+        @post.reblogged_from = params[:reblogged_from]
         if @post.save
           redirect_to feed_path 
         end

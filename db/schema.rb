@@ -11,15 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101193732) do
+ActiveRecord::Schema.define(version: 20161109014746) do
 
   create_table "posts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.string   "title"
     t.text     "body"
     t.integer  "user_id"
+    t.integer  "reblogged_from_id"
+    t.integer  "note_count"
+    t.integer  "reblogged_from"
   end
+
+  create_table "posts_users", id: false, force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "user_id", null: false
+  end
+
+  add_index "posts_users", ["post_id"], name: "index_posts_users_on_post_id"
+  add_index "posts_users", ["user_id"], name: "index_posts_users_on_user_id"
 
   create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"
@@ -31,6 +42,11 @@ ActiveRecord::Schema.define(version: 20161101193732) do
   add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
   add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
+
+  create_table "user_posts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
