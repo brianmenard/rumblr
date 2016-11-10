@@ -25,6 +25,8 @@ body{
 
 .following_container{
     border-left: solid thick #2f3d51;
+    position: fixed;
+    padding-left: 5px;
 }
 
 .avatar{
