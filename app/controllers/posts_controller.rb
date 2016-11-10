@@ -12,12 +12,11 @@ class PostsController < ApplicationController
             redirect_to new_user_session_path
         end
        @posts = []
-       @following = current_user.following
        
        #loop to get all posts from each user (loop by @following),
        #adding each users posts to @posts
        
-       @following.each do |user|
+       current_user.following.each do |user|
           @posts =  @posts + user.posts 
        end
        
