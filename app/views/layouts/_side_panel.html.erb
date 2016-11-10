@@ -15,7 +15,11 @@
             </div>
             <h2 class="light_gray">Following</h2>
             <% current_user.following.each do |following| %>
+            <div>
+                <a href="<%= user_path(following) %>">
+                    <%= image_tag following.avatar.url, class:"avatar_small" %>
+                </a>
                 <%= link_to following.username, following, class: "med_gray" %>
-                <br>
+            </div>
             <% end %>
  </div>

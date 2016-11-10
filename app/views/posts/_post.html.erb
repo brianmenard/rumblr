@@ -14,6 +14,7 @@
         <% end %>
         <h4><%= post.body %></h4>
         <span class="med_gray">source: <%= link_to User.find(post.source).username, User.find(post.source), class:"med_gray"%></span>
+        
         <!-- timestamp, not currently visible -->
         <% post.created_at.strftime("%I:%M %p %Z on %m-%d-%Y") %>
         <div style="float:right;">
