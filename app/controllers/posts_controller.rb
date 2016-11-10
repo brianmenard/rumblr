@@ -68,6 +68,7 @@ class PostsController < ApplicationController
         @new_post = Post.new
         @new_post.title = @post.title
         @new_post.body = @post.body
+        @new_post.photo = @post.photo
         @new_post.user = current_user
         @new_post.reblogged_from = @post.user.id
         if @new_post.save
@@ -88,7 +89,7 @@ class PostsController < ApplicationController
    
 private
    def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :photo)
    end
     
 end

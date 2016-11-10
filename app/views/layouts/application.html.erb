@@ -39,7 +39,6 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <% if user_signed_in? %>
-          <li><%= link_to "New Post", new_post_path %></li>
           <li><%= link_to "Discover", posts_path %></li>
           <li><%= link_to 'Dashboard', feed_path %></li>
         <% end %>
