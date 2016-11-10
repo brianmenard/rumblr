@@ -1,11 +1,11 @@
 
 <span style="color:black;">
-<%= form_for @post, html: { multipart: true } do |f| %>
+<%= form_for @post, :url => { :action => "post_reblog", method: "POST"} do |f| %>
     <%= f.label :title %><br>
     <%= f.text_field :title %><br><br>
     <%= f.label :body %><br>
     <%= f.text_area :body, size: "45x6" %><br>
-    <%= f.file_field :photo %>
-    <%= f.submit %>
+    <%= hidden_field_tag :reblogged_from, @post.user.id %>
+    <%= f.submit%>
 <% end %>
 </span>

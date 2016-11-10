@@ -7,7 +7,7 @@
     color: black;
     padding: 5px;
     margin: 10px;
-    border-radius: 5px
+    border-radius: 5px;
 }
 
 .post_header{
@@ -18,7 +18,25 @@
     margin-top: 15px;
 }
 
+.post_content{
+    margin: 15px;
+}
+
 .username{
     color:#a8a8a8;
     text-decoration: bold;
 }
+
+.new_post{
+    height: 50px;
+    width: 50%;
+    float: left;
+    text-align: center;
+    line-height: 50px;
+}
+
+
+//clearfix hack for parents containing floats
+
+.cf:before, .cf:after { content: ""; display: table; }
+.cf:after { clear: both; }
