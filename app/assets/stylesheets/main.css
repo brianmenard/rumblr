@@ -26,3 +26,8 @@ body{
 .following_container{
     border-left: solid thin #d3d3d3;
 }
+
+.avatar{
+    height: 50px;
+    margin-bottom: 5px;
+}

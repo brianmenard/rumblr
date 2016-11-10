@@ -50,7 +50,7 @@ class PostsController < ApplicationController
     def destroy
         @post = Post.find(params[:id])
         @post.destroy
-        redirect_to posts_path
+        redirect_to feed_path
     end
     
     def edit
@@ -71,7 +71,8 @@ class PostsController < ApplicationController
         @new_post.user = current_user
         @new_post.reblogged_from = @post.user.id
         if @new_post.save
-          redirect_to feed_path 
+            #maybe no redirect?  to avoid page reload
+            redirect_to feed_path 
         end
     end
     
