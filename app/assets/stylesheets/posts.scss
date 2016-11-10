@@ -27,4 +27,16 @@
     text-decoration: bold;
 }
 
+.new_post{
+    height: 50px;
+    width: 50%;
+    float: left;
+    text-align: center;
+    line-height: 50px;
+}
 
+
+//clearfix hack for parents containing floats
+
+.cf:before, .cf:after { content: ""; display: table; }
+.cf:after { clear: both; }
