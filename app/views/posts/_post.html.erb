@@ -14,13 +14,14 @@
             <%= image_tag post.photo.url, class:"photo_post"%>
         <% end %>
         <h4><%= post.body %></h4>
-        <br>
-        <%= post.created_at.strftime("%I:%M %p %Z on %m-%d-%Y") %>
+        <span class="med_gray">source: <%= link_to User.find(post.source).username, User.find(post.source), class:"med_gray"%></span>
+        
+        <!-- timestamp, not currently visible -->
+        <% post.created_at.strftime("%I:%M %p %Z on %m-%d-%Y") %>
         <br>
         <% if post.user == current_user %>
             <%= link_to "edit", edit_post_path(post) %> || <%= link_to "delete", post_path(post), method:"DELETE" %>
         <% end %>
         <br>
-        source: <%= link_to User.find(post.source).username, User.find(post.source)%>
     </div>
 </div>
