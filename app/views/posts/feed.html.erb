@@ -7,13 +7,7 @@
         <% end %>
     </div>
     <div class='col-md-2'>
-        <div class="following_container">
-            <h2 class="light_gray">Following</h2>
-            <% @following.each do |following| %>
-                <%= link_to following.username, following, class: "med_gray" %>
-                <br>
-            <% end %>
-        </div>
+        <%= render partial: "layouts/side_panel", locals: {following_list: @following} %>
     </div>
     <div class='col-md-1'></div>
 </div>

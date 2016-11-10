@@ -49,3 +49,7 @@ body{
   border: none;
   box-shadow: none;
 }
+
+.dark_bottom_border{
+    border-bottom: solid thick #2f3d51;
+}
