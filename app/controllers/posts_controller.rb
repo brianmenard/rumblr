@@ -65,17 +65,26 @@ class PostsController < ApplicationController
     end
     
     def reblog
-       @post = Post.find(params[:id]) 
-    end
-    
-    def post_reblog
-        @post = Post.new(post_params) 
-        @post.user = current_user
-        @post.reblogged_from = params[:reblogged_from]
-        if @post.save
+        @post = Post.find(params[:id]) 
+        @new_post = Post.new
+        @new_post.title = @post.title
+        @new_post.body = @post.body
+        @new_post.user = current_user
+        @new_post.source = @post.source
+        @new_post.reblogged_from = @post.user.id
+        if @new_post.save
           redirect_to feed_path 
         end
     end
+    
+   # def post_reblog
+#        @post = Post.new(post_params) 
+ #       @post.user = current_user
+  #      @post.reblogged_from = params[:reblogged_from]
+   #     if @post.save
+    #      redirect_to feed_path 
+    #    end
+    #end
    
    
 private
