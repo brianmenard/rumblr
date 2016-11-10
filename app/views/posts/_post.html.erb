@@ -3,25 +3,25 @@
         <%= image_tag post.user.avatar.url, class:"avatar" %>
             <%= link_to post.user.username, post.user, class:"username" %>  
         <% if post.reblogged_from %>
-            <i class="material-icons med_gray">swap_horiz</i>
+            <i class="material-icons med_gray">repeat</i>
             <%= link_to User.find(post.reblogged_from).username,  User.find(post.reblogged_from), class:"username"%>
         <% end %>
-        <%= link_to "reblog", "/reblog/" + post.id.to_s%>
     </div>
-    <div class="post_content">
+    <div class="post_content cf">
         <h2><%= post.title %></h2>
         <% if post.photo.url != "/photos/original/missing.png" %>
             <%= image_tag post.photo.url, class:"photo_post"%>
         <% end %>
         <h4><%= post.body %></h4>
         <span class="med_gray">source: <%= link_to User.find(post.source).username, User.find(post.source), class:"med_gray"%></span>
-        
         <!-- timestamp, not currently visible -->
         <% post.created_at.strftime("%I:%M %p %Z on %m-%d-%Y") %>
-        <br>
-        <% if post.user == current_user %>
-            <%= link_to "edit", edit_post_path(post) %> || <%= link_to "delete", post_path(post), method:"DELETE" %>
-        <% end %>
-        <br>
+        <div style="float:right;">
+            <% if post.user == current_user %>
+                <a href="#"><i class="material-icons med_gray">delete</i></a>
+                <a href="#"><i class="material-icons med_gray">mode_edit</i></a>
+            <% end %>
+            <a href="#"><i class="material-icons med_gray">repeat</i></a>
+        </div>
     </div>
 </div>
