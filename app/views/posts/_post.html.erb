@@ -11,7 +11,7 @@
     <div class="post_content">
         <h2><%= post.title %></h2>
         <% if post.photo.url != "/photos/original/missing.png" %>
-            <%= image_tag post.photo.url%>
+            <%= image_tag post.photo.url, class:"photo_post"%>
         <% end %>
         <h4><%= post.body %></h4>
         <br>
