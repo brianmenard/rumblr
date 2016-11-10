@@ -18,10 +18,16 @@
         <% post.created_at.strftime("%I:%M %p %Z on %m-%d-%Y") %>
         <div style="float:right;">
             <% if post.user == current_user %>
-                <a href="#"><i class="material-icons med_gray">delete</i></a>
-                <a href="#"><i class="material-icons med_gray">mode_edit</i></a>
+                <%= link_to post_path(post), method:"DELETE" do %>
+                    <i class="material-icons med_gray">delete</i>
+                <% end %>
+                <%= link_to edit_post_path(post) do %>
+                    <i class="material-icons med_gray">mode_edit</i>
+                <% end %>
             <% end %>
-            <a href="#"><i class="material-icons med_gray">repeat</i></a>
+            <%= link_to "/reblog/" + post.id.to_s do %>
+                    <i class="material-icons med_gray">repeat</i>
+                <% end %>
         </div>
     </div>
 </div>
