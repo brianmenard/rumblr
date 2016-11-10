@@ -1,7 +1,7 @@
 <div class="post_card">
     <div class='post_header'>
         <%= image_tag post.user.avatar.url, class:"avatar" %>
-            <%= link_to post.user.username, post.user, class:"username" %>  
+        <%= link_to post.user.username, post.user, class:"username" %>  
         <% if post.reblogged_from %>
             <i class="material-icons med_gray">repeat</i>
             <%= link_to User.find(post.reblogged_from).username,  User.find(post.reblogged_from), class:"username"%>
