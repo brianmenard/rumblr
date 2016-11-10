@@ -31,3 +31,17 @@ body{
     height: 50px;
     margin-bottom: 5px;
 }
+
+.navbar.navbar-default {
+  padding: 10px 0;
+  background: #35465c;
+  border: none;
+}
+.navbar.navbar-default .navbar-nav > li > a,
+.navbar.navbar-default .navbar-brand {
+  color: white;
+}
+.navbar.navbar-default .navbar-collapse {
+  border: none;
+  box-shadow: none;
+}
