@@ -1,0 +1,27 @@
+<div class="following_container">
+            <div class="center dark_bottom_border">
+                <%= link_to feed_path do %>
+                    <i class="material-icons light_gray" style="font-size: 35px;">home</i>
+                <% end %>
+                <%= link_to posts_path do %>
+                    <i class="material-icons light_gray" style="font-size: 35px;">explore</i>
+                <% end %>
+                <%= link_to new_post_path do %>
+                    <i class="material-icons light_gray" style="font-size: 35px;">description</i>
+                <% end %>
+                <%= link_to current_user do %>
+                    <i class="material-icons light_gray" style="font-size: 35px;">face</i>
+                <% end %>
+            </div>
+            <h2 class="light_gray">Discover</h2>
+            <br>
+            <h5 class="light_gray">Recommended blogs:</h4>
+            <% @top_blogs.each do |user| %>
+            <div>
+                <a href="<%= user_path(user) %>">
+                    <%= image_tag user.avatar.url, class:"avatar_small" %>
+                </a>
+                <%= link_to user.username, user, class: "med_gray" %>
+            </div>
+            <% end %>
+ </div>

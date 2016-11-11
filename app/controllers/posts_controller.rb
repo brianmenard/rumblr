@@ -5,6 +5,7 @@ class PostsController < ApplicationController
             redirect_to new_user_session_path
         end
        @posts = Post.all.sort_by { |a| [ a.created_at ] }.reverse!
+       @top_blogs = User.all.sort_by { |a| [a.posts.count] }
     end
     
     def feed
