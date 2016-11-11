@@ -30,7 +30,7 @@
             <% end %>
             <!-- end follow button -->
             <br>
-            <h5 class="light_gray"><%= @user.username %> is following:</h4>
+            <h5 class="light_gray"><%= @user.username %> is following:</h5>
             <% @user.following.each do |following| %>
             <div>
                 <a href="<%= user_path(following) %>">

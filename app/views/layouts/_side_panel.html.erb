@@ -13,7 +13,8 @@
                     <i class="material-icons light_gray" style="font-size: 35px;">face</i>
                 <% end %>
             </div>
-            <h2 class="light_gray">Following</h2>
+            <h2 class="light_gray">Dashboard</h2>
+            <h5 class="light_gray">You're following:</h5>
             <% current_user.following.each do |following| %>
             <div>
                 <a href="<%= user_path(following) %>">
