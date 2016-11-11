@@ -12,11 +12,12 @@ class PostsController < ApplicationController
             redirect_to new_user_session_path
         end
        @posts = []
+       @following = current_user.following
        
        #loop to get all posts from each user (loop by @following),
        #adding each users posts to @posts
        
-       current_user.following.each do |user|
+       @following.each do |user|
           @posts =  @posts + user.posts 
        end
        
@@ -37,7 +38,6 @@ class PostsController < ApplicationController
     def create
        @post = Post.new(post_params) 
        @post.user = current_user
-       @post.source = current_user.id
        if @post.save
           redirect_to @post 
        end
@@ -50,7 +50,7 @@ class PostsController < ApplicationController
     def destroy
         @post = Post.find(params[:id])
         @post.destroy
-        redirect_to feed_path
+        redirect_to posts_path
     end
     
     def edit
@@ -64,32 +64,22 @@ class PostsController < ApplicationController
     end
     
     def reblog
-        @post = Post.find(params[:id]) 
-        @new_post = Post.new
-        @new_post.title = @post.title
-        @new_post.body = @post.body
-        @new_post.user = current_user
-        @new_post.photo = @post.photo
-        @new_post.source = @post.source
-        @new_post.reblogged_from = @post.user.id
-        if @new_post.save
+       @post = Post.find(params[:id]) 
+    end
+    
+    def post_reblog
+        @post = Post.new(post_params) 
+        @post.user = current_user
+        @post.reblogged_from = params[:reblogged_from]
+        if @post.save
           redirect_to feed_path 
         end
     end
-    
-   # def post_reblog
-#        @post = Post.new(post_params) 
- #       @post.user = current_user
-  #      @post.reblogged_from = params[:reblogged_from]
-   #     if @post.save
-    #      redirect_to feed_path 
-    #    end
-    #end
    
    
 private
    def post_params
-    params.require(:post).permit(:title, :body, :photo)
+    params.require(:post).permit(:title, :body)
    end
     
 end

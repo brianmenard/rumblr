@@ -17,13 +17,16 @@
     <br>
     
 <div class='row'>
-    <div class='col-md-2'></div>
+    <div class='col-md-1'></div>
     <div class='col-md-8'>
         <% @posts.each do |post|%>
-            <%= render partial: "posts/post", locals: {post: post} %>
+            <%= render partial: "posts/post", locals: {post: post, user: @user} %>
         <% end %>
     </div>
-    <div class='col-md-2'></div>
+    <div class='col-md-2'>
+        <%= render partial: "layouts/user_side_panel"%>
+    </div>
+    <div class='col-md-1'></div>
 </div>
     
 </div>

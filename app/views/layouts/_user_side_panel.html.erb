@@ -1,0 +1,25 @@
+<div class="following_container">
+            <div class="center dark_bottom_border">
+                <%= link_to feed_path do %>
+                    <i class="material-icons light_gray" style="font-size: 35px;">home</i>
+                <% end %>
+                <%= link_to posts_path do %>
+                    <i class="material-icons light_gray" style="font-size: 35px;">explore</i>
+                <% end %>
+                <%= link_to new_post_path do %>
+                    <i class="material-icons light_gray" style="font-size: 35px;">description</i>
+                <% end %>
+                <%= link_to current_user do %>
+                    <i class="material-icons light_gray" style="font-size: 35px;">face</i>
+                <% end %>
+            </div>
+            <h2 class="light_gray"><%= @user.username %></h2>
+            <% current_user.following.each do |following| %>
+            <div>
+                <a href="<%= user_path(following) %>">
+                    <%= image_tag following.avatar.url, class:"avatar_small" %>
+                </a>
+                <%= link_to following.username, following, class: "med_gray" %>
+            </div>
+            <% end %>
+ </div>
