@@ -19,4 +19,8 @@ class UsersController < ApplicationController
        @followers = current_user.followers 
     end
     
+    def discover
+        @top_blogs = User.all.sort_by { |a| [a.posts.count] }
+    end
+    
 end
