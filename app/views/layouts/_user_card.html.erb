@@ -4,6 +4,7 @@
         <%= link_to user.username, user, class:"username" %>  
     </div>
     <div class="post_content cf">
-        
+        Recent Posts:
+        <%= link_to user.posts[-1].title, post_path(user.posts[-1]) %>
     </div>
 </div>
