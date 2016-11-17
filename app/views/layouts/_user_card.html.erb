@@ -5,6 +5,23 @@
     </div>
     <div class="post_content cf">
         Recent Posts:
-        <%= link_to user.posts[-1].title, post_path(user.posts[-1]) %>
+        <div class='row'>
+            <div class='col-md-4'>
+                <%= link_to user.posts[-1].title, post_path(user.posts[-1]) %>
+                <%= user.posts[-1].body %>
+                <%= image_tag user.posts[-1].photo.url, style:"width: 100px;" %>
+            </div>
+            <div class='col-md-4'>
+                <%= link_to user.posts[-2].title, post_path(user.posts[-2]) %>
+                <%= user.posts[-2].body %>
+                <%= image_tag user.posts[-2].photo.url, style:"width: 100px;" %>
+            </div>
+            <div class='col-md-4'>
+                <%= link_to user.posts[-3].title, post_path(user.posts[-3]) %>
+                <%= user.posts[-3].body %>
+                <%= image_tag user.posts[-3].photo.url, style:"width: 100px;" %>
+            </div>
+        </div>
+
     </div>
 </div>
