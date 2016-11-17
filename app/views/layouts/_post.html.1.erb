@@ -1,0 +1,34 @@
+<div class="post_card">
+    <div class='post_header'>
+        <%= image_tag post.user.avatar.url, class:"avatar" %>
+        <%= link_to post.user.username, post.user, class:"username" %>  
+        <% if post.reblogged_from %>
+            <i class="material-icons med_gray">repeat</i>
+            <%= link_to User.find(post.reblogged_from).username,  User.find(post.reblogged_from), class:"username"%>
+        <% end %>
+    </div>
+    <div class="post_content cf">
+        <h2><%= post.title %></h2>
+        <% if post.photo.url != "/photos/original/missing.png" %>
+            <%= image_tag post.photo.url, class:"photo_post"%>
+        <% end %>
+        <h4><%= post.body %></h4>
+        <span class="med_gray">source: <%= link_to User.find(post.source).username, User.find(post.source), class:"med_gray"%></span>
+        
+        <!-- timestamp, not currently visible -->
+        <% post.created_at.strftime("%I:%M %p %Z on %m-%d-%Y") %>
+        <div style="float:right;">
+            <% if post.user == current_user %>
+                <%= link_to post_path(post), method:"DELETE" do %>
+                    <i class="material-icons med_gray">delete</i>
+                <% end %>
+                <%= link_to edit_post_path(post) do %>
+                    <i class="material-icons med_gray">mode_edit</i>
+                <% end %>
+            <% end %>
+            <%= link_to "/reblog/" + post.id.to_s do %>
+                    <i class="material-icons med_gray">repeat</i>
+                <% end %>
+        </div>
+    </div>
+</div>
