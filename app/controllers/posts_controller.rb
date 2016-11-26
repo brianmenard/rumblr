@@ -34,6 +34,7 @@ class PostsController < ApplicationController
             redirect_to new_user_session_path
         end
         @post = Post.new
+        @following = current_user.following
     end
     
     def create

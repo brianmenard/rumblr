@@ -8,27 +8,33 @@
         <br>
         <div class='row'>
             <div class='col-md-4'>
-                <%= link_to user.posts[-1].title, post_path(user.posts[-1]) %>
-                <br>
-                <%= user.posts[-1].body %>
-                <% if user.posts[-1].photo.url != "/photos/original/missing.png" %>
-                    <%= image_tag user.posts[-1].photo.url, style:"width: 150px" %>
+                <% if user.posts[-1] %>
+                    <%= link_to user.posts[-1].title, post_path(user.posts[-1]) %>
+                    <br>
+                    <%= user.posts[-1].body %>
+                    <% if user.posts[-1].photo.url != "/photos/original/missing.png" %>
+                        <%= image_tag user.posts[-1].photo.url, style:"width: 150px" %>
+                    <% end %>
                 <% end %>
             </div>
             <div class='col-md-4'>
-                <%= link_to user.posts[-2].title, post_path(user.posts[-2]) %>
-                <br>
-                <%= user.posts[-2].body %>
-                <% if user.posts[-2].photo.url != "/photos/original/missing.png" %>
-                    <%= image_tag user.posts[-2].photo.url, style:"width: 150px" %>
+                <% if user.posts[-2] %>
+                    <%= link_to user.posts[-2].title, post_path(user.posts[-2]) %>
+                    <br>
+                    <%= user.posts[-2].body %>
+                    <% if user.posts[-2].photo.url != "/photos/original/missing.png" %>
+                        <%= image_tag user.posts[-2].photo.url, style:"width: 150px" %>
+                    <% end %>
                 <% end %>
             </div>
             <div class='col-md-4'>
-                <%= link_to user.posts[-3].title, post_path(user.posts[-3]) %>
-                <br>
-                <%= user.posts[-3].body %>
-                <% if user.posts[-3].photo.url != "/photos/original/missing.png" %>
-                    <%= image_tag user.posts[-3].photo.url, style:"width: 150px" %>
+                <% if user.posts[-3] %>
+                    <%= link_to user.posts[-3].title, post_path(user.posts[-3]) %>
+                    <br>
+                    <%= user.posts[-3].body %>
+                    <% if user.posts[-3].photo.url != "/photos/original/missing.png" %>
+                        <%= image_tag user.posts[-3].photo.url, style:"width: 150px" %>
+                    <% end %>
                 <% end %>
             </div>
         </div>
