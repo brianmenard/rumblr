@@ -7,13 +7,13 @@
                     <i class="material-icons light_gray" style="font-size: 35px;">explore</i>
                 <% end %>
                 <%= link_to new_post_path do %>
-                    <i class="material-icons light_gray" style="font-size: 35px;">description</i>
+                    <i class="material-icons light_gray" style="font-size: 35px;">mode_edit</i>
                 <% end %>
                 <%= link_to current_user do %>
                     <i class="material-icons light_gray" style="font-size: 35px;">face</i>
                 <% end %>
             </div>
-            <h2 class="light_gray">Dashboard</h2>
+            <h2 class="light_gray sidebar_header">Dashboard</h2>
             <h5 class="light_gray">You're following:</h5>
             <% current_user.following.each do |following| %>
             <div>

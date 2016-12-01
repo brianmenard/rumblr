@@ -1,6 +1,9 @@
 <div class='row'>
     <div class='col-md-2'></div>
     <div class='col-md-8 center white'>
+        <br><br><br>
+        <h1 class="bookman">Rumblr.</h1>
+        <br>
         <% if !user_signed_in? %>
         <%= link_to "Log in", new_user_session_path, class:"white"%> or <%= link_to "Sign up", new_user_registration_path, class:"white" %>
         <% else %>

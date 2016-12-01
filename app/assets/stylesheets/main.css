@@ -7,6 +7,10 @@ body{
     background-color: #35465c;
 }
 
+.tumblr_blue{
+    color: #35465c;
+}
+
 .white{
     color: white;
 }
@@ -61,4 +65,22 @@ body{
 
 .dark_bottom_border{
     border-bottom: solid thick #2f3d51;
+}
+
+.bookman {
+	font-family: 'Bookman Old Style';
+	font-size: 60px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+}
+
+.sidebar_header{
+    font-family: 'Bookman Old Style';
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
 }
