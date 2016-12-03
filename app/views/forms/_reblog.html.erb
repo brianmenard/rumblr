@@ -6,6 +6,8 @@
     <%= f.label :body %><br>
     <%= f.text_area :body, size: "45x6" %><br>
     <%= hidden_field_tag :reblogged_from, @post.user.id %>
+    <%= hidden_field_tag :source, @post.source %>
+    <%= hidden_field_tag :photo_id, @post.id %>
     <%= f.submit%>
 <% end %>
 </span>

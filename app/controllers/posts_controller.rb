@@ -73,6 +73,8 @@ class PostsController < ApplicationController
     def post_reblog
         @post = Post.new(post_params) 
         @post.user = current_user
+        @post.source = params[:source]
+        @post.photo = Post.find(params[:photo_id]).photo
         @post.reblogged_from = params[:reblogged_from]
         if @post.save
           redirect_to feed_path 
@@ -82,7 +84,7 @@ class PostsController < ApplicationController
    
 private
    def post_params
-    params.require(:post).permit(:title, :body, :photo)
+    params.require(:post).permit(:title, :body, :source, :photo_id)
    end
     
 end
